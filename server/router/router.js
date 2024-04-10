@@ -1,10 +1,9 @@
 import { Router } from "express";
+import register from "../controllers/index.js"
 
 const router=Router();
 
-router.route("/register").get((req,res)=>{
-    res.send("welcome in register ")
-})
+router.route("/register").get(register)
 
 
 export default router;
