@@ -4,6 +4,7 @@ import express from "express";
 import router from "./router/router.js";
 const app = express();
 import Db from "./db/conn.js";
+import valid from "./middlewares/apply_zod_validation.js";
 
 //json middleware
 app.use(express.json());
@@ -12,7 +13,8 @@ app.use(express.json());
 app.use("/v1", router);
 
 
-
+//zod validation
+app.use(valid)
 
 //port initialize
 const port = 8000;

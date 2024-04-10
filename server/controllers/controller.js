@@ -26,8 +26,8 @@ const register = async (req, res) => {
            else{
              //test the email 
              console.log('Email is unique')
-             await user.create({ username, email, phone, password, isAdmin })
-             return res.json({message:"data submmited go and check !!!"})
+             const userCreated=await user.create({ username, email, phone, password, isAdmin })
+             return res.json({message:"data submmited go and check !!!",jwtTokwn: await userCreated.getToken(),userId:userCreated._id.toString()})
            }
         }
 
