@@ -15,7 +15,7 @@ const register = async (req, res) => {
         //if else on req
         if (username && email && phone && password && isAdmin) {
             console.log("all fields are carring values ");
-            const checkEmail = await user.findOne({ email });
+            const checkEmail = await user.user.findOne({ email });
 
             //check flag on unique email
             if (checkEmail) {
@@ -26,7 +26,7 @@ const register = async (req, res) => {
            else{
              //test the email 
              console.log('Email is unique')
-             const userCreated=await user.create({ username, email, phone, password, isAdmin })
+             const userCreated=await user.user.create({ username, email, phone, password, isAdmin })
              return res.json({message:"data submmited go and check !!!",jwtTokwn: await userCreated.getToken(),userId:userCreated._id.toString()})
            }
         }
