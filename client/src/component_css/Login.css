@@ -1,0 +1,13 @@
+.login{
+    text-align: center;
+    background: #000;
+    color: aliceblue;
+}
+.login_section{
+    display: flex;
+    justify-content: space-around;
+    background: #000;
+    color: aliceblue;
+    height: 100vh;
+    width: 100vw;
+}

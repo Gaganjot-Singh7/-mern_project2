@@ -4,16 +4,16 @@ import user from "../db/models/userSchema.js"
 
 const register = async (req, res) => {
     try {
-        console.log(req.body);
+        console.log("request check in register",req.body);
 
 
 
         //destructuring
-        const { username, email, phone, password, isAdmin } = req.body;
+        const { username, email, phone, password } = req.body;
 
 
         //if else on req
-        if (username && email && phone && password && isAdmin) {
+        if (username && email && phone && password ) {
             console.log("all fields are carring values ");
             const checkEmail = await user.user.findOne({ email });
 
@@ -26,12 +26,13 @@ const register = async (req, res) => {
            else{
              //test the email 
              console.log('Email is unique')
-             const userCreated=await user.user.create({ username, email, phone, password, isAdmin })
+             const userCreated=await user.user.create({ username, email, phone, password})
              return res.json({message:"data submmited go and check !!!",jwtTokwn: await userCreated.getToken(),userId:userCreated._id.toString()})
            }
         }
 
         else {
+            console.log("enter all fields ");
            return  res.status(400).send("Invalid field data please enter all the data")
         }
 

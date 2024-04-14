@@ -1,0 +1,25 @@
+.section{
+    display: flex;
+    justify-content: space-around;
+    background: #000;
+    width: 100vw;
+    height: 100vh;
+}
+.subsection1{
+    
+}
+.subsection2{
+    
+    color: aliceblue;
+}
+
+.subsection1_content{
+    text-align: center;
+}
+
+.register{
+    text-align: center;
+    background: #000;
+    color: aliceblue;
+    
+}

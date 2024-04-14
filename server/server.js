@@ -5,6 +5,13 @@ import router from "./router/router.js";
 const app = express();
 import Db from "./db/conn.js";
 import valid from "./middlewares/apply_zod_validation.js";
+import cors from "cors";
+
+//cors 
+const setCors={
+    origin:"http://localhost:5173"
+}
+app.use(cors(setCors))
 
 //json middleware
 app.use(express.json());

@@ -1,0 +1,13 @@
+h1{
+    text-align: center;
+    background: #4e4848;
+}
+.contain{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    background: #000;
+    color: #f8f6f6;
+    height: 100vh;
+    width: 100vw;
+}
