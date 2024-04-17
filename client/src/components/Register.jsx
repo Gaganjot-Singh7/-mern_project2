@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "../component_css/Register.css"
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 
 
@@ -14,7 +14,7 @@ function Register() {
 
   })
 
-
+const navigate=useNavigate()
   //handleValue
   const handleValue = (e) => {
     console.log(e.target.name, e.target.value);
@@ -35,7 +35,7 @@ function Register() {
 
 
     try {
-      const response = await fetch("http://localhost:8000/v1/register", {
+      let response = await fetch("http://localhost:8000/v1/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -43,13 +43,17 @@ function Register() {
         body: JSON.stringify(user)
       });
 
+      console.log("response of fetch is ", response.ok);
       console.log("response of fetch is ", response);
       if (response.ok) {
-        const response = response.json();
-        console.log("check data base ", response.jwtTokwn);
-        setTokeninls(response.jwtTokwn)
-        useNavigate('/Login');
+        
+        console.log("check data base ", response);
+       alert("Registered Sucessfully")
+       navigate('/Login');
 
+      }
+      else{
+        alert(" error !! you are already registered")
       }
     } catch (error) {
       console.log("Fetch error", error);

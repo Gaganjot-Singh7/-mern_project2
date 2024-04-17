@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import "../component_css/Login.css"
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom";
+
 
 function Login() {
 const [userlogin,setUserlogin]=useState(
@@ -22,12 +23,55 @@ const [userlogin,setUserlogin]=useState(
 
   }
 
-
+const navigate=useNavigate();
   //form submit
-  const handleForm = (e) => { 
+  const handleForm = async(e) => { 
     e.preventDefault();
-    alert(userlogin.email);
+    
     console.log(userlogin);
+
+
+   //send data to backend
+ 
+   try {
+    
+const response=await fetch("http://localhost:8000/v1/login",{
+  method:"POST",
+  headers:{
+    "Content-Type":"application/json"
+  },
+  body:JSON.stringify(userlogin)
+
+});
+
+if(response.ok){
+  const res=await response.json()
+  console.log("Login front-back connection is fetch done",res);
+  alert("Login sucessfully ",res.token);
+  console.log(response);
+  console.log("token is",res.token);
+
+//api from store
+storeToken(res.token);
+
+
+navigate("/")
+
+}else{
+  console.log("fetch error ",response);
+}
+
+
+
+
+
+   } catch (error) {
+    console.log("Login error in reactjs ",error);
+    return(error)
+   }
+
+
+
   }
   return (
     <>

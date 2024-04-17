@@ -1,8 +1,8 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App.jsx';
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import { createBrowserRouter, RouterProvider  } from "react-router-dom";
 
 import About from './components/About.jsx';
 import Contact from './components/Contact.jsx';
@@ -14,52 +14,52 @@ import Logout from './components/Logout.jsx';
 
 
 
+
+
 const router = createBrowserRouter([
   {
     path: "/",
-    element: < App />
+    element: <App/>
   },
   {
     path: "/home",
-    element: <Home />
+    element: <Home/>
   },
   {
     path: '/about',
-    element: < About />
+    element: <About/>
   },
 
   {
     path: '/contact',
-    element: < Contact />
+    element: <Contact />
   },
 
   {
     path: '/login',
-    element: < Login />
+    element: <Login/>
   },
 
   {
     path: '/register',
-    element: < Register />
+    element: < Register/>
   },
   {
     path: '/services',
-    element: < Services />
+    element: <Services/>
   },
   {
     path: "/logout",
-    element: <Logout />
+    element: <Logout/>
   }
-])
+]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  
-    <React.StrictMode>
-      <RouterProvider router={router}>
 
-      </RouterProvider>
-
-    </React.StrictMode>
+  <React.StrictMode>   
+        <RouterProvider router={router}>
+        </RouterProvider>    
    
-  
-)
+  </React.StrictMode>
+
+);
