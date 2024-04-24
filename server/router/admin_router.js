@@ -1,7 +1,7 @@
 import express from "express"
 const router=express.Router()
 import admin_user_controller from "../controllers/admin_user_controller.js"
-
+import admin_contact_controller from "../controllers/admin_contact_controller.js";
 
 
 router.route("/user").get(admin_user_controller);
