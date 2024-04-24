@@ -4,9 +4,11 @@ import express from "express";
 import router from "./router/router.js";
 const app = express();
 import Db from "./db/conn.js";
-import valid from "./middlewares/apply_zod_validation.js";
+
 import cors from "cors";
 
+
+import adminRouter from "./router/admin_router.js"
 //cors 
 const setCors={
     origin:"http://localhost:5173"
@@ -19,9 +21,8 @@ app.use(express.json());
 //middleware of router 
 app.use("/v1", router);
 
+app.use("/v2",adminRouter);
 
-//zod validation
-app.use(valid)
 
 //port initialize
 const port = 8000;

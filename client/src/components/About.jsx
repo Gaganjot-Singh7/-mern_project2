@@ -1,16 +1,14 @@
 import React from 'react'
-import { NavLink } from "react-router-dom"
+
 import "../component_css/About.css"
 
 function About() {
   return (
     <>
       <div className="contain">
-        about
+        WELCOME ! TO ABOUT US SECTION
       </div>
-      <div className="bottom">
-        <NavLink to="/">Home Page</NavLink>
-      </div>
+      
     </>
   )
 }

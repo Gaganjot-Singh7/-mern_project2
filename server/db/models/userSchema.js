@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 
 
 //mongoose Schema of User
-const userSchema = mongoose.Schema({
+export const userSchema = mongoose.Schema({
     username: {
         type: String,
         required: true
@@ -51,12 +51,22 @@ userSchema.pre("save", async function (next) {
 
 
 //create a instance using user.methods using schema 
-userSchema.methods.getToken=async function(){
-  return   jwt.sign({
-    user_id:this._id.toString(),
-    email:this.email,
+userSchema.methods.getToken = async function()  {
+    try {
+        const token = await jwt.sign({
+            user_id: this._id.toString(),
+            email: this.email,
 
-   },"GAGANJOTSINGH",{expiresIn:"50m"})
+        }, "GAGANJOTSINGH", { expiresIn: "50m" })
+
+        if (token) {
+            console.log("token generated");
+        } else {
+            console.log("token generation error");
+        } return token;
+    } catch (error) {
+        console.log("Token genearion error", error);
+    }
 }
 
 
@@ -64,4 +74,4 @@ userSchema.methods.getToken=async function(){
 //Model of userSchema
 const user = mongoose.model("user", userSchema);
 
-export default {user,userSchema};
+export default user;

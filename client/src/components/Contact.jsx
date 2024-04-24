@@ -1,10 +1,19 @@
-import React, { useState } from 'react'
+import React, {  useState,useEffect } from 'react'
 import "../component_css/Contact.css";
-import { NavLink } from "react-router-dom"
-
+import { NavLink } from "react-router-dom";
+import useAuth from '../store/Store';
 
 
 function Contact() {
+  
+  
+ const {user,userContact}= useAuth();
+ 
+ useEffect(()=>{
+  userContact();
+  // console.log(("value of user is",user));
+  },[])
+
   const [contact, setContact] = useState({
     username: "",
     email: "",
@@ -20,22 +29,21 @@ function Contact() {
 
   }
 
-  const handleForm = async(e) => {
+  const handleForm = async (e) => {
     e.preventDefault();
     console.log(contact);
 
 
-
-    const response= await fetch("http://localhost:8000/v1/contact",{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json"
+    const response = await fetch("http://localhost:8000/v1/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
       },
-      body:JSON.stringify(contact)
+      body: JSON.stringify(contact)
     });
     console.log(response);
-    if(response.ok){console.log("check  Contact database");}
-    
+    if (response.ok) { console.log("check  Contact database"); }
+
   }
 
 
@@ -73,9 +81,7 @@ function Contact() {
           </div>
         </div>
 
-        <div className="bottom">
-          <NavLink to="/">Home Page</NavLink>
-        </div>
+       
 
       </section>
 

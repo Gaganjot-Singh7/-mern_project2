@@ -1,6 +1,6 @@
 import React from 'react'
 import "../component_css/Home.css";
-import { NavLink } from "react-router-dom"
+
 function Home() {
   return (
     <>
@@ -21,9 +21,7 @@ function Home() {
         </div>
 
 
-        <div className="bottom">
-          <NavLink to="/">Home Page</NavLink>
-        </div>
+       
       </div>
 
 

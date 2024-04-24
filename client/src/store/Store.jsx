@@ -1,23 +1,41 @@
-import React, { createContext,useState } from 'react'
+import React, { createContext, useState, useContext } from 'react';
+
+export const AuthContext = createContext({
 
 
-export const AuthContext=createContext("");
+
+  storeTokenLs: (token) => {
+
+    localStorage.setItem("token", token)
+    console.log("check localStorage");
+
+  },
 
 
-export default  function AuthProvider({Children}) {
-  //hook
-  const [token,setToken]=useState(null)
+  deleteToken: () => {
+    localStorage.removeItem("token");
+    console.log("token removed");
+  },
 
-  //funtionsetup for login
-const storeToken=(value_token)=>{
-  localStorage.setItem("token",value_token);
+
+  userContact: async() => {
+    let fetchData = await fetch("http://localhost:8000/v1/userVerify", {
+      method: "get",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`
+      }
+
+    })
+    if (!fetchData.ok) { console.log("contact ftech error"); }
+    let userData=await fetchData.json();
+    console.log(userData);
+  }
+})
+
+export const AuthProvider = AuthContext.Provider;
+
+
+export default function useAuth() {
+  return useContext(AuthContext);
 }
-  return (
-   <AuthContext.Provider value={{token,setToken,storeToken}}>
-    {Children}
-   </AuthContext.Provider>
-  )
-}
-
-
 
