@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext } from 'react';
-
+import { toast } from 'react-toastify';
 export const AuthContext = createContext({
 
 
@@ -18,18 +18,27 @@ export const AuthContext = createContext({
   },
 
 
-  userContact: async() => {
+  userContact: async () => {
+
     let fetchData = await fetch("http://localhost:8000/v1/userVerify", {
       method: "get",
-      headers: {
+      header: {
         Authorization: `Bearer ${localStorage.getItem("token")}`
       }
 
     })
-    if (!fetchData.ok) { console.log("contact ftech error"); }
+    console.log("data of contact ",fetchData);
+    if (!fetchData.ok) { console.log("Fetch data error in Contact"); }
     let userData=await fetchData.json();
     console.log(userData);
-  }
+    
+    setUser(userData);
+  },
+
+    
+
+   
+
 })
 
 export const AuthProvider = AuthContext.Provider;

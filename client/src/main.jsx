@@ -13,6 +13,9 @@ import Home from './components/Home.jsx';
 import Logout from './components/Logout.jsx';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Admin_dashboard from './components/Admin_dashboard.jsx';
+import Admin_user from './components/Admin_user.jsx';
+import Admin_contact from './components/Admin_contact.jsx';
 
 
 
@@ -51,7 +54,21 @@ const router = createBrowserRouter([
   {
     path: "/logout",
     element: <Logout />
-  }
+  },
+  {
+    path:"/admin",
+    element:<Admin_dashboard/>,
+    children:[{
+      path:"user",
+      element:<Admin_user/>
+  
+    },
+    {
+      path:"contact",
+      element:<Admin_contact/>
+    }]
+  },
+  
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

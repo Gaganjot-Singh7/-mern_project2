@@ -2,6 +2,7 @@ import React from 'react';
 import "../component_css/Navbar.css"
 import { NavLink } from "react-router-dom";
 import useAuth from '../store/Store.jsx';
+import Admin_dashboard from './Admin_dashboard.jsx';
 
 
 
@@ -22,13 +23,12 @@ function Navbar() {
                     <li ><NavLink to="/services" className='nav_list'>Services</NavLink></li>
 
                     {isLogin ? <li><NavLink to="/Logout" className='nav_list'>Logout</NavLink></li> :
-                  <>
-                    <li ><NavLink to="/login" className='nav_list'>Login</NavLink></li>
-                    <li ><NavLink to="/register" className='nav_list'>Register</NavLink></li>
-                  </>
+                        <>
+                            <li ><NavLink to="/login" className='nav_list'>Login</NavLink></li>
+                            <li ><NavLink to="/register" className='nav_list'>Register</NavLink></li>
+                        </>
                     }
-
-
+                    <li><NavLink to="/admin">Admin</NavLink></li>
 
 
 

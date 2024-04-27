@@ -23,24 +23,17 @@ function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
 
   const [user, setUser] = useState();
-
-  const userContact = async () => {
-
-    let fetchData = await fetch("http://localhost:8000/v1/userVerify", {
-      method: "get",
-      header: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`
-      }
-
-    })
-    console.log("data of contact ",fetchData);
-    if (!fetchData.ok) { console.log("Fetch data error in Contact"); }
-    let userData=await fetchData.json();
-    console.log(userData);
+  
+  const userContact = ()=>{
     
-    setUser(userData);
   }
 
+
+
+//admin useState
+
+
+//admin 
 
 
 

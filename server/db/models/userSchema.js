@@ -57,7 +57,7 @@ userSchema.methods.getToken = async function()  {
             user_id: this._id.toString(),
             email: this.email,
 
-        }, "GAGANJOTSINGH", { expiresIn: "50m" })
+        }, "GAGANJOTSINGH", { expiresIn: "50d" })
 
         if (token) {
             console.log("token generated");
