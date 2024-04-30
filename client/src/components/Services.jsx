@@ -21,19 +21,19 @@ function Card({ id,title, description, price }) {
 function Services() {
   const [user, setUser] = useState({})
 
-  useEffect(() => {
-    const dataFetch = async () => {
-      const data = await fetch("http://localhost:8000/v1/services", { method: "GET" })
-      let response = await data.json()
+  const dataFetch = async () => {
+    const data = await fetch("http://localhost:8000/v1/services", { method: "GET" })
+    let response = await data.json()
 
-      if (response) {
-        let arrayValue = response.msg;
-        setUser(arrayValue)
-        console.log("USeState check", user);
-      } else {
-        console.log(" front fetching error");
-      }
-    };
+    if (response) {
+      let arrayValue = response.msg;
+      setUser(arrayValue)
+      console.log("USeState check", user);
+    } else {
+      console.log(" front fetching error");
+    }
+  };
+  useEffect(() => {
     dataFetch()
   }, [])
 

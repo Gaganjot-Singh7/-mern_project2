@@ -6,6 +6,8 @@ function Admin_dashboard() {
     <ul className='flex gap-6'>
         <li><NavLink to="/admin/user">Users</NavLink></li>
         <li><NavLink to="/admin/contact">Messages</NavLink></li>
+        <li><NavLink to="/admin/services"> Services</NavLink></li>
+        <li><NavLink to="/admin/addservices">Add Services</NavLink></li>
         <li><NavLink to="/">Home</NavLink></li>
         
     </ul>

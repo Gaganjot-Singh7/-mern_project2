@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import {Link} from "react-router-dom"
 import { toast } from "react-toastify"
 
 function Admin_user() {
@@ -83,7 +83,7 @@ function Admin_user() {
                                 <td className="border border-gray-400 px-4 py-2">{data.email}</td>
                                 <td className="border border-gray-400 px-4 py-2">{data.phone}</td>
                                 <td className="border border-gray-400 px-4 py-2">{data.isAdmin ? 'Yes' : 'No'}</td>
-                                <td className="border border-gray-400 px-4 py-2"><button className="bg-green-500 text-white rounded-full px-4 py-2">Edit</button></td>
+                                <td className="border border-gray-400 px-4 py-2"><button className="bg-green-500 text-white rounded-full px-4 py-2"  >   <Link to="/admin/userUpdate">Edit</Link></button></td>
                                 <td className="border border-gray-400 px-4 py-2"><button className="bg-red-500 text-white rounded-full px-4 py-2" onClick={()=>userDelete(data._id)}>Delete</button></td>
                             </tr>
                         ))}
