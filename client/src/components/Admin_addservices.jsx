@@ -45,7 +45,7 @@ const MyForm = () => {
 
     return (
         <div className="max-w-md mx-auto mt-8 p-6 bg-white rounded-md shadow-md">
-            <h2 className="text-lg font-semibold text-gray-800 mb-4">Add Product</h2>
+            <h2 className="text-lg font-semibold text-gray-800 mb-4 text-center">Add New Service</h2>
             <form onSubmit={handleSubmit}>
                 <div className="mb-4">
                     <label htmlFor="title" className="block text-gray-700 font-semibold mb-2">Title</label>

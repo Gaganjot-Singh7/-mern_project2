@@ -59,7 +59,7 @@ function Admin_user() {
 
     return (
         <div>
-            <h2>Admin User</h2>
+            <h2 className='text-3xl font-bold text-center my-5' >Admin User</h2>
 
             {admindata ? (
 
@@ -71,7 +71,7 @@ function Admin_user() {
                             <th className="border border-gray-400 px-4 py-2">Email</th>
                             <th className="border border-gray-400 px-4 py-2">Phone</th>
                             <th className="border border-gray-400 px-4 py-2">Is Admin</th>
-                            <th className="border border-gray-400 px-4 py-2">Update</th>
+
                             <th className="border border-gray-400 px-4 py-2">Remove</th>
                         </tr>
                     </thead>
@@ -83,8 +83,8 @@ function Admin_user() {
                                 <td className="border border-gray-400 px-4 py-2">{data.email}</td>
                                 <td className="border border-gray-400 px-4 py-2">{data.phone}</td>
                                 <td className="border border-gray-400 px-4 py-2">{data.isAdmin ? 'Yes' : 'No'}</td>
-                                <td className="border border-gray-400 px-4 py-2"><button className="bg-green-500 text-white rounded-full px-4 py-2"  >   <Link to="/admin/userUpdate">Edit</Link></button></td>
-                                <td className="border border-gray-400 px-4 py-2"><button className="bg-red-500 text-white rounded-full px-4 py-2" onClick={()=>userDelete(data._id)}>Delete</button></td>
+                                
+                                <td className="border border-gray-400 px-4 py-2">{data.isAdmin?<p className='text-red-500 text-2xl font-bold text-center'>X</p>:(<button className="bg-red-500 text-white rounded-full px-4 py-2 text-center" onClick={()=>userDelete(data._id)}>Delete</button>)}</td>
                             </tr>
                         ))}
                     </tbody>

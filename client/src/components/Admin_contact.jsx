@@ -43,7 +43,9 @@ const deleteMessage = async (id) => {
 
   return (
 
-    <>
+    <><p className='bg-white font-bold text-3xl  text-center my-3'>
+      Message Recieved
+    </p>
       <table className="min-w-full divide-y divide-gray-200">
         <thead>
           <tr>

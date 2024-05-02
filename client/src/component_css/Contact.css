@@ -1,14 +1,47 @@
 .contact{
     background: #000;
-    color: aliceblue;
+    color: rgb(238, 242, 245);
     text-align: center;
 }
 .contact_section{
     display:flex ;
     justify-content: space-around;
     background: #313030;
-    color: aliceblue;
+    color: rgb(251, 251, 252);
     height: 100vh;
     width: 100vw;
+    border: solid red 2px;
     
+}
+
+.contact_subsection2{
+    color: rgb(0, 2, 3);
+    font-size: xx-large;
+    margin: 2px;
+    border: white solid 3px ;
+    border-radius: 50px;
+    padding: 9px;
+    margin: 9px;
+}
+/* Remove background color */
+input {
+    background-color: transparent;
+    border: 1px solid #ccc; /* Add a border for better visibility */
+    padding: 8px; /* Add padding for spacing inside the input */
+    border-radius: 4px; /* Optional: Add some border radius for rounded corners */
+}
+
+/* Change width */
+input {
+    width: 200px; /* Adjust the width as needed */
+}
+
+.btn{
+    background: black;
+    color:white;
+   padding-left: 4px;
+   padding-right: 4px;
+   padding-top: 2px;
+   padding-bottom: 2px;
+    border-radius: 10px;
 }

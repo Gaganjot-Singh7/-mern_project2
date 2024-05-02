@@ -58,7 +58,7 @@ function AdminServices() {
     return (
         <>
 
-            <h1 className="text-2xl font-bold mb-4">Current services</h1>
+            <h1 className="text-3xl font-bold mb-4 bg-white">Current services</h1>
 
             <table className="min-w-full">
                 <thead>
@@ -66,7 +66,7 @@ function AdminServices() {
                         <th className="px-6 py-3 bg-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Title</th>
                         <th className="px-6 py-3 bg-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Description</th>
                         <th className="px-6 py-3 bg-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Price</th>
-                        <th className="px-6 py-3 bg-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Upgrade</th>
+
                         <th className="px-6 py-3 bg-gray-200 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Remove</th>
                     </tr>
                 </thead>
@@ -77,9 +77,7 @@ function AdminServices() {
                                 <td className="px-6 py-4 whitespace-no-wrap">{c.title}</td>
                                 <td className="px-6 py-4 whitespace-no-wrap">{c.description}</td>
                                 <td className="px-6 py-4 whitespace-no-wrap">{c.price}</td>
-                                <td className="px-6 py-4 whitespace-no-wrap"><button className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg">
-                                    Edit
-                                </button></td>
+                                
                                 <td className="px-6 py-4 whitespace-no-wrap"><button className='bg-red-500 hover:bg-red-600 text-white font-bold rounded-lg py-2 px-4 ' onClick={() => { deleteService(c._id) }}>Delete</button></td>
                             </tr>
                         ))
