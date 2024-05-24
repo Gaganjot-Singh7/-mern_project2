@@ -1,26 +1,37 @@
-import React from 'react'
+// AboutUsPage.js
 
-import "../component_css/About.css"
+import React from 'react';
 
-function About() {
+const AboutUsPage = () => {
   return (
-    <>
-      <div className="contain">
-        <h2 className="text-3xl font-bold mb-4">Welcome to the About Us Section</h2>
-        <p className="text-lg text-white-700">
-          At Technolex, we're driven by innovation and passion for technology. With years of experience in the tech industry, we strive to provide cutting-edge solutions tailored to meet the evolving needs of our clients. Our team comprises skilled professionals who are dedicated to delivering excellence in every project we undertake.
-        </p>
-        <p className="text-lg text-white-700 mt-4">
-          Our mission is to empower businesses and individuals through transformative technology solutions. Whether it's developing robust software applications, implementing advanced AI algorithms, or crafting intuitive user interfaces, we're committed to delivering results that exceed expectations.
-        </p>
-        <p className="text-lg text-white-700 mt-4">
-          We believe in fostering long-term partnerships with our clients, built on trust, transparency, and mutual success. With a customer-centric approach, we ensure that every solution we deliver is tailored to address the unique challenges and objectives of our clients, enabling them to thrive in today's digital landscape.
-        </p>
-      </div>
+    <div className="bg-gray-100 min-h-screen">
+      <header className="bg-gray-800 text-white py-4">
+        <h1 className="text-3xl font-semibold text-center">About Us</h1>
+      </header>
+      <main className="container mx-auto py-8">
+        
+        <section className="mb-8">
+          <h2 className="text-2xl font-semibold mb-4">Our Developer</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-white shadow-lg rounded-lg p-6">
+              <img src="team-member1.jpg" alt="Team Member 1" className="rounded-full w-32 h-32 mx-auto mb-4" />
+              <h3 className="text-xl font-semibold">Gaganjot Singh</h3>
+              <p className="text-gray-700">MERN Steck web developer</p>
+            </div>
+           
+            {/* Add more team members here */}
+          </div>
+        </section>
+        <section>
+          <h2 className="text-2xl font-semibold mb-4">Join Us!</h2>
+          
+        </section>
+      </main>
+      <footer className="bg-gray-800 text-white text-center py-4">
+        &copy; 2024 Technolex. All rights reserved.
+      </footer>
+    </div>
+  );
+};
 
-
-    </>
-  )
-}
-
-export default About
+export default AboutUsPage;

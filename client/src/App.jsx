@@ -12,6 +12,7 @@ import Logout from "./components/Logout.jsx"
 import  { AuthProvider } from "./store/Store.jsx";
 
 import "/index.css"
+import { Outlet } from 'react-router-dom';
 
 function App() {
   const storeTokenLs = () => {
@@ -44,12 +45,8 @@ function App() {
   <AuthProvider value={{ storeTokenLs, deleteToken, token, setToken ,userContact ,user}}>
 
     <Navbar />
-    <Home />
-    <About />
-    <Services />
-    <Contact />
-    
-    <Footer />
+    <Home/>
+  <Outlet/>
 
   </AuthProvider>
   )
